@@ -1,0 +1,122 @@
+@startuml
+
+' hide the spot
+hide circle
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+entity "User" as user {
+    *el_id: number <<generated>>
+    --
+}
+
+entity "UserDevices" as user_devices {
+    *el_id: number <<generated>>
+    --
+}
+
+entity "UserAuthorization" as user_authorization {
+    *el_id: number <<generated>>
+    --
+}
+
+entity "UserRefreshToken" as user_refresh_token {
+    *el_id: number <<generated>>
+    --
+}
+
+entity "Adress" as address {
+    *el_id: number <<generated>>
+    --
+}
+
+entity "Book" as book {
+    *el_id: number <<generated>>
+    --
+}
+
+entity "BookRequest" as book_request {
+    *el_id: number <<generated>>
+    --
+}
+
+entity "Subscription" as subscription {
+    *el_id: number <<generated>>
+    --
+}
+
+entity "Channel" as channel {
+    *el_id: number <<generated>>
+    --
+}
+
+entity "Notification" as notification {
+    *el_id: number <<generated>>
+    --
+}
+
+entity "NotificationChannel" as notification_channel {
+    *el_id: number <<generated>>
+    --
+}
+
+entity "Tracking" as tracking {
+    *el_id: number <<generated>>
+    --
+}
+
+entity "SystemList" as system_list {
+    *el_id: number <<generated>>
+    --
+}
+
+entity "SystemStatuses" as system_statuses {
+    *el_id: number <<generated>>
+    --
+}
+
+entity "Embassy" as embassy {
+    *el_id: number <<generated>>
+    --
+}
+
+entity "EmbassyMembership" as membassy_membership {
+    *el_id: number <<generated>>
+    --
+
+}
+
+
+
+user ||..|{ user_devices
+user ||..|{ user_authorization
+user ||..|| user_refresh_token
+
+
+' user
+' user_devices
+' user_authorization
+' user_refresh_token
+' book
+' book_request
+
+' subscription
+' channel
+' notification
+' notification_channel
+' tracking
+' system_list
+' system_statuses
+
+' address
+
+' embassy
+' membassy_membership
+
+' -- Zero or One   |o-- , Entity07  |o--||  Entity08  -- Zero or One  to Exactly One 
+' -- Exactly One   ||-- , Entity05  ||--o{  Entity06  -- Exactly One  to Zero or Many
+' -- Zero or Many  }o-- , Entity03  }o..o{  Entity04  -- Zero or Many to Zero or Many
+' -- One  or Many  }|-- , Entity01  }|..||  Entity02  -- One or Many  to Exactly One 
+
+@enduml
